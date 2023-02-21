@@ -1,1 +1,1 @@
-# Lab_Assignmentt_6_CS1
+# Lab_Assignment_6_CS1
