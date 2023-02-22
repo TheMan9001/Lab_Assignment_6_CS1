@@ -2,16 +2,27 @@
 
 int search(int numbers[], int low, int high, int value){
 	int middle;
-	middle = (low + high)/2;
-	if(numbers[middle] == value){
-		return middle;
-	}else{
-		if(numbers[middle] > value){
-			return search(numbers, low, (middle-1), value);
+	if(low <= high){
+	//checks if there is at least one index to check between low and high(inclusive)
+		middle = (low + high)/2;
+		//gets the middle index
+		if(numbers[middle] == value){
+		//if the value of the middle index equals the desired value return that index ...
+			return middle;
 		}else{
-			return search(numbers, (middle+1), high, value);
+		/*
+		... otherwise check if the value of middle index is higher or lower than the desired 
+		value then redefine the low and high indexes and run the function again until the 
+		index of the value is found or until all necessary numbers are checked.
+		*/
+			if(numbers[middle] > value){
+				return search(numbers, low, (middle-1), value);
+			}else{
+				return search(numbers, (middle+1), high, value);
+			}
 		}
 	}
+	
 	return -1;
 }
 
