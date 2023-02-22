@@ -3,18 +3,13 @@
 int search(int numbers[], int low, int high, int value){
 	int middle;
 	if(low <= high){
-	//checks if there is at least one index to check between low and high(inclusive)
+	//checks to see if there is at least one index to check between low and high (inclusive)
 		middle = (low + high)/2;
-		//gets the middle index
 		if(numbers[middle] == value){
-		//if the value of the middle index equals the desired value return that index ...
+		//if the value of middle index is the desired value return that index
 			return middle;
 		}else{
-		/*
-		... otherwise check if the value of middle index is higher or lower than the desired 
-		value then redefine the low and high indexes and run the function again until the 
-		index of the value is found or until all necessary numbers are checked.
-		*/
+		//otherwise reduce the bounds(low and high) and run the function again
 			if(numbers[middle] > value){
 				return search(numbers, low, (middle-1), value);
 			}else{
@@ -22,15 +17,14 @@ int search(int numbers[], int low, int high, int value){
 			}
 		}
 	}
-	
+	//returns -1 if the function never finds the desired value
 	return -1;
 }
 
 void printArray(int numbers[], int sz){
 	int i;
 	printf("Number array : ");
-	for (i = 0;i<sz;++i)
-	{
+	for (i = 0;i<sz;++i){
 		printf("%d ",numbers[i]);
 	}
 	printf("\n");
